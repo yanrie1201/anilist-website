@@ -23,6 +23,7 @@ import {
   CharCover,
 } from '../styles/animeDetail'
 import { H5 } from '../styles/globals'
+import styled from '@emotion/styled'
 
 function Detail() {
   const [anime, setAnime] = useState([])
@@ -39,7 +40,7 @@ function Detail() {
 
   useEffect(() => {
     if (title) {
-      document.title = `${title}| AnimeKita`
+      document.title = `${title}| AniList`
     }
     const month = [
       'January',
@@ -85,10 +86,20 @@ function Detail() {
     return <p>Now Loading</p>
   }
 
+  const imgStyle = {
+    opacity: '1', // 50% opacity
+    width: '100%', // Set the width to 100% (optional)
+  }
+
+  const FullPageBanner = styled(Banner)`
+    position: relative;
+    opacity: 0.5;
+  `
+
   return (
     <div ref={ref}>
       <HeaderDetail>
-        <Banner
+        <FullPageBanner
           // @ts-ignore
           image={anime.bannerImage}
         />
@@ -96,7 +107,7 @@ function Detail() {
           <CoverWarp>
             <CoverComponent>
               <div>
-                <Img src={coverImage} alt={title} width="100%" />
+                <Img src={coverImage} alt={title} style={imgStyle} />
               </div>
             </CoverComponent>
           </CoverWarp>
@@ -193,12 +204,6 @@ function Detail() {
               ))}
           </InformationWrap>
           <div>
-            <H3
-              // @ts-ignore
-              desc
-            >
-              Description
-            </H3>
             <DescriptionWrap
               dangerouslySetInnerHTML={{
                 // @ts-ignore
@@ -207,31 +212,24 @@ function Detail() {
             ></DescriptionWrap>
 
             <H3>Characters & Voices Actors</H3>
-            <div>
-              <CharWrap>
-                {character.map((el, i) => (
-                  <CharCard key={i}>
-                    <CharCover className="character">
-                      <Img src={el.node.image.medium} alt="" />
-                      <H5>{el.node.name.full}</H5>
-                    </CharCover>
-                    <CharCover
-                      className="staff"
-                      // @ts-ignore
-                      end="true"
-                    >
-                      <H5
-                        // @ts-ignore
-                        bottom
-                      >
-                        {el.voiceActors[0].name.full}
-                      </H5>
-                      <Img src={el.voiceActors[0].image.medium} alt="" />
-                    </CharCover>
-                  </CharCard>
-                ))}
-              </CharWrap>
-            </div>
+            <CharWrap>
+              {character.map((el, i) => (
+                <CharCard key={i}>
+                  <CharCover className="character">
+                    <Img src={el.node.image.medium} alt="" />
+                    <H5>{el.node.name.full}</H5>
+                  </CharCover>
+                </CharCard>
+              ))}
+              {character.map((el, i) => (
+                <CharCard key={i}>
+                  <CharCover className="character">
+                    <Img src={el.voiceActors[0].image.medium} alt="" />
+                    <H5>{el.voiceActors[0].name.full}</H5>
+                  </CharCover>
+                </CharCard>
+              ))}
+            </CharWrap>
 
             <H3
               // @ts-ignore

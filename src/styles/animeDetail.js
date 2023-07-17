@@ -71,37 +71,14 @@ export const TitleWrap = styled.div({
 
 export const DescriptionWrap = styled.div({
   backgroundColor: 'white',
-  opacity: '0.8',
+  opacity: '1',
   padding: '1px 15px',
+  border: '2px solid black',
   borderRadius: '15px',
   [mq[1]]: {
     marginTop: '-140px',
   },
 })
-
-export const Button = styled.button((props) => ({
-  // @ts-ignore
-  display: props.mobile ? 'inline' : 'none',
-  backgroundColor: '#749BFF',
-  color: 'white',
-  width: '95%',
-  border: 0,
-  padding: '8px 40px',
-  borderRadius: '0.5rem',
-  transitionProperty: 'all',
-  transitionDuration: '150ms',
-  // @ts-ignore
-  marginLeft: props.mobile && '10px',
-  cursor: 'pointer',
-  '&:hover': {
-    opacity: '0.8',
-  },
-  [mq[1]]: {
-    // @ts-ignore
-    display: props.mobile ? 'none' : 'inline',
-    width: '100%',
-  },
-}))
 
 export const ContentWrap = styled.div({
   [mq[1]]: {
@@ -124,6 +101,7 @@ export const InformationWrap = styled.div((props) => ({
     // @ts-ignore
     display: props.mobile ? 'none' : 'block',
   },
+  border: '2px solid black',
 }))
 
 export const H4 = styled.h4((props) => ({
@@ -159,6 +137,7 @@ export const CharWrap = styled.div({
 export const CharCard = styled.div({
   backgroundColor: 'rgba(255, 255, 255, 0.75)',
   display: 'inline-grid',
+  border: '2px solid black',
   borderRadius: '5px',
   height: '100px',
   width: '100%',

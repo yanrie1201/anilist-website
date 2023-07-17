@@ -1,7 +1,7 @@
 // @ts-ignore
 import { gql } from '@apollo/client'
 
-export const TOP_AIRING_ANIME = gql`
+export const ANIME_LIST = gql`
   query {
     Page(perPage: 10, page: 1) {
       pageInfo {

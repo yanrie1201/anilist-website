@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 // @ts-ignore
 import { useQuery } from '@apollo/client'
-import { TOP_AIRING_ANIME } from '../Queries/Queries'
+import { ANIME_LIST } from '../Queries/Queries'
 import { Container, Flex, H1, H2, H5 } from '../styles/globals'
 import { Content, Img, Card, ImgWrap, TextWrap } from '../styles/animeHome'
 // @ts-ignore
@@ -13,10 +13,10 @@ function Home() {
 
   const navigate = useNavigate()
 
-  const { loading, data } = useQuery(TOP_AIRING_ANIME)
+  const { loading, data } = useQuery(ANIME_LIST)
 
   useEffect(() => {
-    document.title = 'Home | AnimeKita'
+    document.title = 'Home | AniList'
     if (data) {
       setAnime(data.Page.media)
     }
