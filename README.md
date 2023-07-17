@@ -1,4 +1,4 @@
-## Getting Started
+## ANILIST WEBSITE PROJECT
 
 First, run the development server, install yarn same version and next version that suit with this project:
 
@@ -15,5 +15,3 @@ This is the anime detail of the feature that been ask:
 ![Alt text](image-3.png)
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Deploy on Vercel
